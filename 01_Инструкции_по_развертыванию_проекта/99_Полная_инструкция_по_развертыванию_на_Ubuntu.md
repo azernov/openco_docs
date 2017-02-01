@@ -105,6 +105,11 @@ php_admin_value[open_basedir] = /home/[your_user]/[your_site_name]
 php_admin_value[post_max_size] = 512M
 php_admin_value[upload_max_filesize] = 512M
 php_admin_value[cgi.fix_pathinfo] = 0
+php_admin_value[short_open_tag] = On
+php_admin_value[memory_limit] = 512M
+php_admin_value[session.gc_probability] = 1
+php_admin_value[session.gc_divisor] = 100
+php_admin_value[session.gc_maxlifetime] = 28800;
 
 # тут значения можно менять, в зависимости от нагрузки на сайт
 pm = dynamic
@@ -276,7 +281,7 @@ server {
 
 ### Конфигурирование mysql
 
-Открываем файл /etc/mysql/mydql.conf.d/mysqld.cnf и в секции [mysqld] в конце дописываем:
+Открываем файл /etc/mysql/mysql.conf.d/mysqld.cnf и в секции [mysqld] в конце дописываем:
 
 ```
 sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
@@ -299,6 +304,7 @@ CREATE DATABASE IF NOT EXISTS [your_db_name];
 CREATE USER '[your_db_user]'@'localhost' IDENTIFIED BY '[your_db_user_password]';
 GRANT USAGE ON *.* TO '[your_db_user]'@'localhost' IDENTIFIED BY '[your_db_user_password]' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 GRANT ALL PRIVILEGES ON `[your_db_name]`.* TO '[your_db_user]'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 ```
 
 **Запоминанаем имя базы данных, имя пользователя и пароль.**
