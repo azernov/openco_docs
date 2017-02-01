@@ -75,6 +75,13 @@ apt-get install nginx mysql-server-5.7 mysql-client-5.7 libmysqlclient20 ssl-cer
 
 ```
 useradd -d /home/[your_user] -g [your_user_group] -m -s /bin/bash [your_user]
+usermod -a -G www-data [your_user]
+usermod -a -G sudo [your_user]
+passwd [your_user]
+```
+
+После последней операции укажите пароль для пользователя [your_user]
+
 ```
 
 ### Конфигурирование php
