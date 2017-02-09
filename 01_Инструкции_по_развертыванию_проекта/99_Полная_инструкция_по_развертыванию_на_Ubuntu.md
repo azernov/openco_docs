@@ -68,7 +68,7 @@ apt-get dist-upgrade
 ### Устанавливаем новые пакеты, необходимые для проекта
 
 ```
-apt-get install nginx mysql-server-5.7 mysql-client-5.7 libmysqlclient20 ssl-cert php5.6 php5.6-common php5.6-curl php5.6-gd php-imagick php5.6-imap php5.6-mcrypt php5.6-memcache php5.6-mysql php5.6-pspell php5.6-recode php5.6-tidy php5.6-xmlrpc php5.6-xsl php5.6-mbstring php5.6-fpm php-gettext
+apt-get install nginx mysql-server-5.7 mysql-client-5.7 libmysqlclient20 ssl-cert php5.6 php5.6-common php5.6-curl php5.6-gd php-imagick php5.6-imap php5.6-mcrypt php5.6-memcache php5.6-mysql php5.6-pspell php5.6-recode php5.6-tidy php5.6-xmlrpc php5.6-xsl php5.6-mbstring php5.6-fpm php-gettext php5.6-zip
 ```
 
 ### Добавляем нового пользователя в систему, под которым будет работать наш проект
